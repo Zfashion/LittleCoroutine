@@ -1,0 +1,87 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        kotlin_version = "1.4.10"
+        fragment_version = "1.2.5"
+        lifecycle_version = "2.2.0"
+        nav_version = "2.3.2"
+        paging_version = "2.1.2"
+        recyclerview_version = "1.1.0"
+        room_version = "2.2.5"
+        viewpager2_version = "1.0.0"
+        work_version = "2.4.0"
+        brvah_version = "3.0.4"
+    }
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+tasks.register('hello') {
+    println 'Hello Groovy'
+    4.times { i ->
+        println i
+    }
+}
+
+tasks.register('intro') {
+    println 'Wow'
+//    dependencies {
+//        tasks.hello
+//    }
+    tasks.hello
+    println 'I am Galley'
+}
+
+task pdrt {
+//    printf(rootProject.projectDir.path)
+
+    def configFile = this.file("${rootProject.rootDir.path}/config")
+    configFile.mkdirs()
+    println(configFile.absolutePath)
+
+//    configFile.withOutputStream { OutputStream os ->
+//        //系统会自动关闭流，不用我们自己关
+//        os.withWriter {
+//
+//        }
+//    }
+
+    configFile.listFiles().each { File f ->
+        println(f.absolutePath)
+    }
+
+    File f1 = rootProject.file("${configFile.absolutePath}/d.gradle")
+    File f2 = rootProject.file("${configFile.absolutePath}/d2.gradle")
+
+    //复制文件
+    f1.withInputStream { InputStream ins ->
+        f2.withOutputStream { OutputStream out ->
+            out << ins
+        }
+    }
+
+    tasks.intro
+}
+

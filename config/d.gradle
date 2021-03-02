@@ -1,0 +1,6 @@
+def one = "Hello"
+def two = "Groovy"
+
+def out = one + " " +two
+
+println(out)

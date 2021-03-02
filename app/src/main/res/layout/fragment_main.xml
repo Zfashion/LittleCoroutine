@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLy"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constrainedHeight="true"/>
+
+    <LinearLayout
+        android:id="@+id/bottomLy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/btnBg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler">
+
+        <Button
+            android:id="@+id/mAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加用户" />
+
+        <Button
+            android:id="@+id/mDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下一页"/>
+
+        <Button
+            android:id="@+id/coroutine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="coroutine"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

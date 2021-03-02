@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.little.ui.frament.main.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_secondFragment"
+            app:destination="@id/secondFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"/>
+        <action
+            android:id="@+id/action_mainFragment_to_coroutineFragment"
+            app:destination="@id/coroutineFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"/>
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.little.ui.frament.second.SecondFragment"
+        android:label="SecondFragment" />
+    <fragment
+        android:id="@+id/coroutineFragment"
+        android:name="com.example.little.ui.frament.CoroutineFragment"
+        android:label="CoroutineFragment" />
+</navigation>
