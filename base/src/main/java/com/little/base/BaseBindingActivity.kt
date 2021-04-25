@@ -13,5 +13,8 @@ abstract class BaseBindingActivity<VB: ViewBinding>: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = inflateBindingWithGeneric(layoutInflater)
         setContentView(binding.root)
+        initView()
     }
+
+    abstract fun initView()
 }

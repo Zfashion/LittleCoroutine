@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.little.databinding.ActivityMain2Binding
 import com.example.little.repository.entity.User
 import com.example.little.ui.adapter.diff.DiffUserCallback
@@ -49,6 +47,10 @@ class MainActivity : BaseBindingActivity<ActivityMain2Binding>() {
 //            roomAdapter.setDiffNewData(toMutableList)
 //            recycler.smoothScrollToPosition(roomAdapter.itemCount)
 //        }
+    }
+
+    override fun initView() {
+
     }
 //
 //    companion object class RoomAdapter(data: MutableList<User>?): BaseQuickAdapter<User, BaseViewHolder>(R.layout.layout_item, data) {

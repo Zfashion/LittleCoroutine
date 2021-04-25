@@ -6,33 +6,70 @@
     app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.little.ui.frament.main.MainFragment"
+        android:name="com.example.little.ui.fragment.main.MainFragment"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_secondFragment"
             app:destination="@id/secondFragment"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"/>
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
         <action
             android:id="@+id/action_mainFragment_to_coroutineFragment"
             app:destination="@id/coroutineFragment"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"/>
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_mainFragment_to_testVBFragment"
+            app:destination="@id/testVBFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_mainFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_mainFragment_to_multiTabFragment"
+            app:destination="@id/multiTabFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.example.little.ui.frament.second.SecondFragment"
+        android:name="com.example.little.ui.fragment.second.SecondFragment"
         android:label="SecondFragment" />
     <fragment
         android:id="@+id/coroutineFragment"
-        android:name="com.example.little.ui.frament.CoroutineFragment"
+        android:name="com.example.little.ui.fragment.coroutine.CoroutineFragment"
         android:label="CoroutineFragment" />
+    <fragment
+        android:id="@+id/testVBFragment"
+        android:name="com.example.little.ui.fragment.binding.TestVBFragment"
+        android:label="TestVBFragment" />
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.little.ui.fragment.viewpager.ViewPagerFragment"
+        android:label="ViewPagerFragment" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiTabFragment"
+        android:name="com.example.little.ui.fragment.viewpager.MultiTabFragment"
+        android:label="MultiTabFragment" />
 </navigation>

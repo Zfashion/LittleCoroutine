@@ -1,4 +1,4 @@
-package com.example.little.ui.frament.main
+package com.example.little.ui.fragment.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,15 +7,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.little.MyViewModel
 import com.example.little.R
+import com.example.little.databinding.LayoutItemBinding
 import com.example.little.repository.entity.User
 import com.example.little.ui.adapter.diff.DiffUserCallback
+import com.little.base.BaseBindingAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment: Fragment() {
@@ -57,6 +56,7 @@ class MainFragment: Fragment() {
         }
 
         model.loadUsers()
+
         model.UserData.observe(viewLifecycleOwner) {
             val toMutableList = it.toMutableList()
             roomAdapter.setDiffNewData(toMutableList)
@@ -71,12 +71,34 @@ class MainFragment: Fragment() {
         coroutine.setOnClickListener {
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToCoroutineFragment())
         }
+
+        bindingFm.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToTestVBFragment())
+        }
+
+        viewPager.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToViewPagerFragment())
+        }
+
+        multiTab.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToMultiTabFragment())
+        }
     }
 
-    companion object class RoomAdapter(data: MutableList<User>?): BaseQuickAdapter<User, BaseViewHolder>(R.layout.layout_item, data) {
+//    companion object class RoomAdapter(data: MutableList<User>?):
+//        BaseQuickAdapter<User, BaseViewHolder>(R.layout.layout_item, data) {
+//
+//        override fun convert(holder: BaseViewHolder, item: User) {
+//            holder.setText(R.id.txx, item.firstName + item.lastName)
+//        }
+//    }
 
-        override fun convert(holder: BaseViewHolder, item: User) {
-            holder.setText(R.id.txx, item.firstName + item.lastName)
+    class RoomAdapter(data: MutableList<User>?) :
+        BaseBindingAdapter<User, LayoutItemBinding>(data) {
+
+        override fun convert(binding: LayoutItemBinding, position: Int, item: User) {
+            binding.txx.text = "${(item.firstName + item.lastName)} + $position"
         }
+
     }
 }

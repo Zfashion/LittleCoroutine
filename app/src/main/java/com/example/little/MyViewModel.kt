@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.little.repository.DBHelper
 import com.example.little.repository.entity.User
 import com.example.little.utils.IDUtils
+import com.little.ext.appContext
 import kotlinx.coroutines.*
 import java.io.Serializable
 import kotlin.random.Random
@@ -22,7 +23,7 @@ class MyViewModel : ViewModel() {
         withContext(Dispatchers.IO) {
             val nextInt1 = Random.nextInt(10, 100)
             val user = User(size, "莱昂纳德$nextInt1", "迪卡普里奥$nextInt1")
-            DBHelper.getUserDao(App.getAppContext()).insertAll(user)
+            DBHelper.getUserDao(appContext).insertAll(user)
             loadUsers()
         }
     }
@@ -30,7 +31,7 @@ class MyViewModel : ViewModel() {
     fun deleteUser(user: User) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                DBHelper.getUserDao(App.getAppContext()).delete(user)
+                DBHelper.getUserDao(appContext).delete(user)
                 loadUsers()
             }
         }
@@ -38,7 +39,7 @@ class MyViewModel : ViewModel() {
 
     fun loadUsers() = viewModelScope.launch {
         withContext(Dispatchers.IO) {
-            val all = DBHelper.getUserDao(App.getAppContext()).getAll()
+            val all = DBHelper.getUserDao(appContext).getAll()
             UserData.postValue(all)
         }
     }

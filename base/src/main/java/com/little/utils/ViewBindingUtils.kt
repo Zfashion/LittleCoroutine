@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
 
+
+
 @JvmName("inflateWithGeneric")
 fun <VB: ViewBinding> Any.inflateBindingWithGeneric(layoutInflater: LayoutInflater): VB =
     withGenericBindingClass(this) { clazz ->

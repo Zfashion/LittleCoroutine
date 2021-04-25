@@ -1,13 +1,9 @@
-package com.example.little.ui.frament
+package com.example.little.ui.fragment.coroutine
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.viewbinding.ViewBinding
 import com.example.little.databinding.FragmentCoroutineBinding
 import com.little.base.BaseBindingFragment
 import kotlinx.android.synthetic.main.fragment_coroutine.*
@@ -27,7 +23,7 @@ class CoroutineFragment : BaseBindingFragment<FragmentCoroutineBinding>() {
         initView()
     }
 
-    private fun initView() {
+    override fun initView() {
             lifecycleScope.launch {
 //                (1..10).asFlow()
 //                    .map { num -> performRequest(num) }

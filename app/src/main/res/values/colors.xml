@@ -8,4 +8,10 @@
     <color name="browserNavBg">#222222</color>
     <color name="browserTitle">#EAEAEA</color>
     <color name="browserTitleSub">#DCDCDC</color>
+
+    <color name="color_item_one">#03DAC5</color>
+    <color name="color_item_two">#3CDA03</color>
+    <color name="color_item_three">#DAB603</color>
+    <color name="color_item_four">#DA6003</color>
+    <color name="color_item_five">#8803DA</color>
 </resources>

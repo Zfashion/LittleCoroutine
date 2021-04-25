@@ -1,4 +1,4 @@
-package com.example.little.ui.frament.second
+package com.example.little.ui.fragment.second
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.little.MyViewModel
 import com.example.little.R
 import com.example.little.ui.adapter.diff.DiffUserCallback
-import com.example.little.ui.frament.main.MainFragment
+import com.example.little.ui.fragment.main.MainFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class SecondFragment: Fragment() {

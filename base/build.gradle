@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -45,6 +46,40 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$brvah_version"
+
+    api "androidx.fragment:fragment-ktx:$fragment_version"
+    api("androidx.activity:activity-ktx:1.2.0")
+
+    // lifecycle生命周期相关
+    api("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    api("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+
+    // kotlin协程相关
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
+
+    //Navigation
+    api "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    api "androidx.navigation:navigation-ui-ktx:$nav_version"
+    // Feature module Support
+    api "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    //Paging
+    api "androidx.paging:paging-runtime-ktx:$paging_version"
+    //RecyclerView
+    api "androidx.recyclerview:recyclerview:$recyclerview_version"
+
+    //Room
+    api "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    api "androidx.room:room-ktx:$room_version"
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    //viewpager2
+    api "androidx.viewpager2:viewpager2:$viewpager2_version"
+    //work manager
+    api "androidx.work:work-runtime-ktx:$work_version"
 }
